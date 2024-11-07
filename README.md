@@ -29,7 +29,7 @@ SwiftUI's combination of declarative syntax, live previews, and multi-device sup
    - Embraces incremental adoption
 
   2. How views work in SwiftUI?
-     Views are the basic building blocks of user interfaces and are important to everything you do in SwiftUI.
+      Views are the basic building blocks of user interfaces and are important to everything you do in SwiftUI.
      There are three qualities that make SwiftUI views special,
        - declarative
        - compositional
