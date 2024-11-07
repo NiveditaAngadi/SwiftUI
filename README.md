@@ -83,7 +83,7 @@ SwiftUI's combination of declarative syntax, live previews, and multi-device sup
     }
 
   View hierarchies can be encapsulated into custom views and view modifiers. 
-  ** Cuctom View ** confirms to the "View" protocol and has body property to return the view it represents. 
+  ** Custom View ** confirms to the "View" protocol and has body property to return the view it represents. 
   You can refactor your view into custom view and use as is. 
   ForEach creates a view for element in the collection.
 
