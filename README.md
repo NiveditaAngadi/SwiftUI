@@ -1,3 +1,6 @@
+Reference: 
+https://developer.apple.com/pathways/swiftui/
+
 # SwiftUI
 SwiftUI employs declarative programming, which focuses on writing your specific desired outcome and letting SwiftUI do the work of translating your code into a functional UI.
 
@@ -151,11 +154,3 @@ This can be used in SwiftUI code like any other views.
 In case if you want to user SwiftUI views in UIKit,  define a Hosting View Controller - this is created with root SwiftUI view, and can be added to your UIKit or AppKit view controller hierarchy. 
 
 SwiftUI is built with a foundation of declarative, compositional, and state-driven views. On top of that it provides platform-idiomatic capabilities and integration with a wide SDK. All of these things help you focus on what makes your app unique, with less code provide a wide range of components that results in idiomatic and engaging applications. And enable incremental adoption along every step of the way. 
-
-
-        
-     
-     
-     
-
-  
