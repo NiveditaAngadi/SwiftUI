@@ -1,0 +1,58 @@
+When you create a new project (app), In Xcode you will see 3 main sections. 
+1. Navigator (left most)
+2. Editor 
+3. Preview
+
+Swift and SwiftUI are designed to read like natural language. 
+
+Swift -> is the programming language you use to write your app's code 
+SwiftUI -> is a framework that provides views, controls, and layout structures for creating your app's interface. 
+
+1. What is App Structure?
+App structure defines the content and behaviour of an app. 
+SwiftUI app has one and only one main app structure. 
+
+2. Why import SwiftUI?
+To access the symbols and features of SwiftUI, the app uses an import declaration to import the SwiftUI framework.
+
+3. What is @main? 
+@main attribute to indicate the entry point of the SwiftUI app. 
+The entry point is responsible for the start of the app. 
+
+A SwiftUI app contains one and only one entry point. Attempting to apply @main to more than one structure in the app results in a compiler error.
+
+import SwiftUI 
+@main 
+struct MyApp: App {
+   var body: some Scene {
+     WindowGroup {
+         ContentView()
+      }
+    } 
+ } 
+
+My App structure confirms to the "App" protocol, and provides the content of the app and its behaviour. 
+
+4. What is App protocol?
+A type that represents the structure and behaviour of an app. 
+
+You can create an app by declaring a structure that conforms to the App protocol. Implement the required "body" computed property to define the app's content. 
+
+The protocol provides the default implementation of main() method, that system calls to launch your app. 
+You can have exactly one entry point among all of your app's files. 
+
+Compose the app's body from instances that conform to the "Scene" protocol. Each scene contains the root view of a view hierarchy and has a life cycle managed by the system.
+SwiftUI provides some concrete scene types to handle common scenarios, like for displaying documents or settings. 
+You can also create custom scenes. 
+
+5. What is body property?
+ "body" is the required computed property defined in the App protocol, which is the requirement of the "App" protocol. 
+
+This property returns the contents of the app described as "scene". 
+
+6. What is "Scene"?
+A scene contains the view hierarchy that defines the app's user interface.
+SwiftUI provides differnt types of scenes including "WindowGroup", "Window", "DocumentationGroup", & "Settings". 
+
+5. 
+
