@@ -14,6 +14,7 @@ SwiftUI app has one and only one main app structure.
 
 2. Why import SwiftUI?
 To access the symbols and features of SwiftUI, the app uses an import declaration to import the SwiftUI framework.
+Without import declaration, content view wouldn't have access to symbols of SwiftUI. 
 
 3. What is @main? 
 @main attribute to indicate the entry point of the SwiftUI app. 
@@ -47,12 +48,106 @@ You can also create custom scenes.
 
 5. What is body property?
  "body" is the required computed property defined in the App protocol, which is the requirement of the "App" protocol. 
-
 This property returns the contents of the app described as "scene". 
+Body - can return one or more primary or secondary scenes. 
 
 6. What is "Scene"?
+SwiftUI provides building blocks that help you create the user interface of your app. One of the building blocks is Scene. 
 A scene contains the view hierarchy that defines the app's user interface.
 SwiftUI provides differnt types of scenes including "WindowGroup", "Window", "DocumentationGroup", & "Settings". 
+The scene contains ContentView, a custom view that  creates a view hierarchy that consists of views. 
 
-5. 
+5. What is "WindowGroup" scene? 
+WindowGroup scene represents the main window that the app displays. 
+SwiftUI provides the platform specific behaviour for the window group.
+Most commonly used scene. 
+
+For instance, in macOS and iPadOS, a person can open more than one window from the group. 
+And in macOS, a person can combine multiple instances of the window group into a set of tabs.
+
+6. What is "ContentView"?
+In SwiftUI, a scene contains view hierarchy that an app displays as its user interface. A view hierarchy defines the layout of views
+relative to other views. 
+
+ContentView implements the computed property - body. 
+Implementing body is a common pattern that you see throughout your SwiftUI code,  for instance, when a structure conforms to protocols such as
+App, Scene, and View. 
+
+View hierarchy 
+
+Window Group 
+ContentView 
+VStack 
+Image & Text 
+
+
+import SwiftUI 
+
+struct ContentView: View {
+   var body: some View {
+     VStack {
+         Image(systemName: "globe") 
+             .imageScale(.large)
+             .foregroundColor(.ascentColor) 
+         Text("Hello, world")
+       }
+    .padding()
+  }
+}
+
+7. What is VStack?
+Its SwiftUI provided view, which arranges subviews vertically. 
+A VStack simultaneously renders any on- or off screen views it contains. Using VStack is ideal when you have a small number of 
+subviews. 
+However, if your app needs to display many more subviews, consider using "LazyVStack", which only renders the views when the app needs
+to display them onscreen. 
+
+8. What is HStack?
+Its SwiftUI provided view, which arranges subviews horizontally.
+Similar to the LazyVStack, we have "LazyHStack".
+
+9. Image 
+To display image. 
+
+10. Text 
+To display text content 
+
+11. TabView 
+Container view that provides tabs that people can use to switch between different subviews. 
+TabItem -> modifier, which tells the TabView the image and text to display in each tab. 
+
+12. What is Conditional Compilation Block?
+A conditional compilation block tells the swift compiler to conditionally compile the code block depending on the value of one or more
+compilation condition. 
+
+#if os(iOS)
+#elseif os(macOS)
+#endif
+
+13. How do you create custom scene?
+Code can be made more readable and easier to maintain is to use custom scenes.
+You can create a custom scene by defining the structure that conforms to the Scene protocol.
+A structure that conforms to Scene must implement the computed property body, just like structures that conform to the App protocol do.
+
+struct MyScene: Scene {
+ var body: some Scene {
+   WindowGroup {
+      TabView {
+         ContentView() 
+           .tabItem {
+             Label("Journal", systemImage: "book") 
+           } 
+
+         SettingsView() {
+           .tabItem {
+             Label("Settings", systemImage: "gear") 
+           }
+       }
+   }
+ } 
+}
+
+14. Declaring a custom view?
+
+
 
