@@ -148,6 +148,64 @@ struct MyScene: Scene {
 }
 
 14. Declaring a custom view?
+SwiftUI offers declarative approach to user interface design. With a traditional imperative approach, the burden is on your controller code
+code not only to instantiate, lay out, and configure views, but also to continually to make updates as the condition chnage. 
+In constrast, with a declartive approach, you create a lightweight description of your user interface by declaring views in hierarchy that mirrors the desired 
+layout of your interface. SwiftUI then manages drawing and updating these views in response to events like user input or state changes. 
 
+You compose custom views out of built-in views that SwiftUI provides, plus other composite views that you already defined. 
+You configure these views with view modifiers and connect with them to your data model. 
+You then place your custom views within your app's view hierarchy. 
+
+Declare a custom view type by defining a structure that conforms to the View protocol. 
+
+struct MyView: View {
+}
+
+15. What is "View" Protocol? 
+"View" protocol provides a blueprint for functionality - in this case, the behaviour of an element that SwiftUI draws onscreen. 
+Conformance to the protocol comes with bothv requirements that view must fulfill, and functionality that the protocol provides. 
+After you fulfill the requirements, 
+you can insert your custom view into a view hierarchy so that it becomes part of your app’s user interface.
+
+16. What is the main requirement of View protocol?
+The View protocol’s main requirement is that conforming types must define a body computed property.
+
+struct MyView: View {
+   var body: some View {
+    }
+}
+
+secondary requirement is, that confirming types must indicate an associated type for the body property. 
+However, you don't make an explicit declaration. Instead, you declare the body property as an opaque type, using "some"  View syntax, to 
+indicate only that body's type conforms to View. 
+The exact type depends on the body’s content, which varies as you edit the body during development. 
+Swift infers the exact type automatically.
+
+Describe the view's appearance by adding content to the view's body property. 
+You can compose the body from built-in views that SwiftUI provides, as well as custom views that you’ve defined elsewhere.
+Views that take multiple input child views, like the stack in the example above, 
+typically do so using a closure marked with the ViewBuilder attribute. 
+
+To configure the views in your view’s body, you apply view modifiers. 
+A modifier is nothing more than a method called on a particular view. The method returns a new, 
+altered view that effectively takes the place of the original in the view hierarchy.
+
+If an input value changes, SwiftUI notices the change and redraws only the affected parts of your interface. This might invlove reinitializing 
+your entire view, but SwiftUI manages that for you. 
+
+Because the system may reinitialize a view at any time, it's important to avoid doing any significant work in your view's initialization code. 
+It's often best to omit an explicit initializer, allowing Swift to synthesize a member-wise initializer instea. 
+
+SwiftUI provides many tools to help you manage your app's data under constraints. 
+
+After you define a view, you can incorporate it in other views,
+just like you do with built-in views. You add your view by declaring it at the point in the hierarchy at which you want it to appear. 
+
+Alternatively, you could add your view as the root view of a new scene in your app, like the Settings scene that declares content for a macOS preferences window,
+or a WKNotificationScene scene that declares the content for a watchOS notification. 
+
+16. What is Viewbuilder?
+A custom parameter attribute that constructs view from closures. 
 
 
