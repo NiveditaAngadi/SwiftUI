@@ -1,0 +1,28 @@
+
+Reference:
+https://developer.apple.com/documentation/swiftui/app-organization
+
+SwiftUI -> Define the entry and top-level structure of your app. 
+
+Describe your app's structure declaratively, much like you declare a view's apperance. Create a type that conforms to the "App" protocol and use it to enumerate the "Scenes" that represent
+aspect of your app's user interface. 
+
+SwiftUI enables you to write code that works across all of Apple’s platforms. However,
+it also enables you to tailor your app to the specific capabilities of each platform. For example, 
+if you need to respond to the callbacks that the system traditionally makes on a UIKit, AppKit, or WatchKit app’s delegate, 
+define a delegate object and instantiate it in your app structure using an appropriate delegate adaptor property wrapper, like UIApplicationDelegateAdaptor.
+
+Scenes:
+Declare the user interface grouping that make up the parts of your app. 
+
+Windows:
+Display user interface content in a window or a collection of windows. 
+
+Modal Presentation:
+Present content in a separate view that offers focused interaction.
+
+App Extension:
+Extend your app’s basic functionality to other parts of the system, like by adding a Widget.
+
+Search:
+Enable people to search for text or other content within your app.
