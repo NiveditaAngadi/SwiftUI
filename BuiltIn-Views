@@ -1,0 +1,60 @@
+Reference:
+https://developer.apple.com/tutorials/swiftui-concepts/maintaining-the-adaptable-sizes-of-built-in-views
+https://developer.apple.com/documentation/SwiftUI/Preparing-views-for-localization
+https://developer.apple.com/documentation/SwiftUI/Applying-Custom-Fonts-to-Text
+https://developer.apple.com/documentation/SwiftUI/Controls-and-indicators
+https://developer.apple.com/documentation/SwiftUI/Fitting-Images-into-Available-Space
+https://developer.apple.com/tutorials/SwiftUI/drawing-paths-and-shapes
+
+The views you define with SwiftUI either directly contain views that SwiftUI provides, or use other custom views that contain these built-in views.
+SwiftUI views determine their own size, and understanding how to modify the size of built-in views while preserving their adaptability is the best way to create a fluid layout 
+without complicating your code. 
+
+1. Text and Symbols. 
+When defining the layout for your app, text and symbols play a central role in conveying information to people - in navigation links, button labels, and more. 
+Text and symbols that display information or label other elements need to have enough space to display their contents. 
+
+a. Text View 
+Text view displays read-only text. It contents could be a short string, like the title of a play.
+A text view could also display a much longer string, like all the actors lines for a scene in the play. 
+
+When you declare a Text view in your layout, give the system semantic information about your text with the Font attribute. 
+A Text view can adjust to some space constraints with line-wrapping or truncation, but it doesn’t change font size to 
+accommodate situations where its ideal size is smaller or larger than the available space.
+
+b. Symbols 
+Symbols, such as the iconography that SFSymbols provides, can denote common app features, like folders, heart shapesfor favorites etc. 
+Effective symbols streamline your app’s UI, and are easily recognizable by the people who use your app.
+You can customize their colors and sizes using standard view modifiers provided in SwiftUI.
+Even though you specify a system or custom symbol in an Image, treat SF Symbols more like text.
+To adjust the size and weight of a symbol, specify a semantic Font, like title, just like you would for a Text view.
+
+2. Labels
+To use both text and a symbol to represent a single element in your app, use a label. 
+A label takes care its title and icon sizes their alignment. 
+
+3. Controls
+Views that people interact with come in discrete sizes, to maintain consistency when several elements of the same type appear together, like Settings pane. 
+You can use view modifier to update the size of the controls. 
+Button
+Progressive View 
+Picker 
+General-purpose controls like -> Menu, Link, specialized views like EditButton and color picker. 
+
+4. Images and Shapes 
+Graphical elements, such as images and shapes, can add a level of visual enhancement for your app.
+
+Images:
+Display photos and other rich graphics in an ** Image ** 
+By default, an Image displays at the asset’s original size. 
+You can add modifiers like resizable(capInsets:resizingMode:) and scaledToFit() or scaledToFill() to scale it to the available space.
+
+If you're accessing an image asset from a server, use an ** AsyncImage ** to handle the download while keeping your app responsive. 
+
+Shapes:
+SwiftUI provides several common shapes, and modifiers to change their size, color or other aspects of their appearance. 
+Use a single shape or a composition of multiple shapes to create a background, border, or other visual element.
+
+Shapes such as, 
+Rectangle, Circle,  RoundRectangle etc. 
+
