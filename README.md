@@ -2,7 +2,13 @@ Reference:
 https://developer.apple.com/pathways/swiftui/
 
 # SwiftUI
+Introduce by Apple in 2019. 
 SwiftUI employs declarative programming, which focuses on writing your specific desired outcome and letting SwiftUI do the work of translating your code into a functional UI.
+A modern way to create user interfaces for Apple apps. 
+AppKit -> iMac, MacBook, MacPro
+UIKit -> iPhone, iPad, AppleTV
+WatchKit -> Apple watch 
+UIKit came from adoptation of AppKit 
 
 SwiftUI's combination of declarative syntax, live previews, and multi-device support provides everything you need to begin designing and developing for Apple platforms. 
 
@@ -27,6 +33,11 @@ SwiftUI's combination of declarative syntax, live previews, and multi-device sup
    - Enables to move from prototype to production faster.
    - Empowering you to focus on what makes your app unique.
    - Embraces incremental adoption
+     
+  2. Benefits of SwiftUI
+     1. Automatic support for Dynamic texts.
+     2. Accessibility and localization
+     3. Easily create UI themes. 
 
   2. How views work in SwiftUI?
       Views are the basic building blocks of user interfaces and are important to everything you do in SwiftUI.
