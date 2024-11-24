@@ -10,13 +10,22 @@ aspect of your app's user interface.
 SwiftUI enables you to write code that works across all of Apple’s platforms. However,
 it also enables you to tailor your app to the specific capabilities of each platform. For example, 
 if you need to respond to the callbacks that the system traditionally makes on a UIKit, AppKit, or WatchKit app’s delegate, 
-define a delegate object and instantiate it in your app structure using an appropriate delegate adaptor property wrapper, like UIApplicationDelegateAdaptor.
+define a delegate object and instantiate it in your app structure using an appropriate delegate adaptor property wrapper, 
+like UIApplicationDelegateAdaptor.
 
 Scenes:
 Declare the user interface grouping that make up the parts of your app. 
+A "scene" is part of app's user interface that is managed by the system, meaning that everything defined inside it will be 
+displayed in a way that may vary from platform to platform. The reason is that different Apple platforms have other input methods, screen sizes
+and hardware characteristics. 
+For example, a list shown as one column on an iPhone may be shown as two columns on an iPad. The system will always decide 
+the best way to show the user interface. 
 
 Windows:
-Display user interface content in a window or a collection of windows. 
+Display user interface content in a window or a collection of windows.
+
+WindowGroup: 
+Is a scene that presents a group of identically structured windows.  
 
 Modal Presentation:
 Present content in a separate view that offers focused interaction.
@@ -26,3 +35,43 @@ Extend your app’s basic functionality to other parts of the system, like by ad
 
 Search:
 Enable people to search for text or other content within your app.
+
+ContentView: ContentView will be always be the first view shown when the app launches. 
+
+PreviewProvider:  Has no role in the application itself and will not compiled or included in the final code. 
+It is there to help you see how the interface will look when the app runs. You can even remove these lines if you don't want Xcode 
+to display a live preview.
+
+Main components: main, struct, body, WindowGroup, Scene, ContentView 
+
+In terms of organization, an app structure corresponds to the content behaviour of an application and a SwiftUI application 
+contains only one main app structure. 
+
+import SwiftUI
+
+@main 
+struct MyNewProject: App {
+ var body: some Scene {
+  WindowGroup {
+   ContentView()
+  }
+ }
+}
+
+
+import SwiftUI 
+struct ContentView: View {
+ var body: some View {
+  VStack {
+   Image(systemName: "globe")
+    .imageScale(.large)
+    .foregroundColor(.accentColor)
+
+    Text("Hello World!")
+  }
+   .paddding()
+  }
+}
+
+File creates a main structure called "MyNewProject" - inside this structure, we have a variable called "body" that represents the scene. 
+The following lines add a view called "ContentView" to the "WindowGroup"
