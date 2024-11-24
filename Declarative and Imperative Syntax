@@ -1,0 +1,31 @@
+Declarative vs Imperative programming
+     Decalrative and Imperative programming are not mutually exclusive. Declarative code enables you to focus on the expected result, instead of steps to get there.
+     Imperative code is great when making a change to state, or when there might not be an existing declarative component.
+     SwiftUI embraces both. Example of this is button. Buttons are added to the view declaratively, and part of this declaration is the action perform when tapped.
+     This action uses imperative code to make a change.
+
+     SwiftUI views are descriptions of what the current state of the UI should be they are not long lived object instances that receive imperative commands over time.
+     This is why SwiftUI views are value types, defined using structs instead of classes.
+
+     SwiftUI takes these descriptions and creates an efficient data structure to represent them. It maintains this data structure behind the scenes. 
+     And it's used to produce different outputs, for example, what is shown on the screen, the gestures and interactive aspects of the view and its accessibility representation.
+
+      In imperative programming you need to provide specific order of execution. This method of creating code by specifying orders is called imperative syntax.
+
+      The method of writing code for the user interface elemets by specifying what you need instead of how you need it, is called declarative syntax. 
+      Worry about what you want - do not worry about how its done. 
+
+      Benefits of declarative syntax
+      1. Easy to learn 
+      2. Simple to read and understand 
+      3. A clean and modern syntax
+      4. Easy to create complex interfaces
+      5. Xcode provides live previews. 
+      6. No working with view constraints 
+      7. Localizations and UI variations. 
+      8. Simplifies development of an app for multi-platform. 
+
+      Limitations of declarative syntax 
+      1. Full functionality only available in UIKit 
+      2. Xcode preview bugs 
+      3. Market is still adopting to SwiftUI. 
