@@ -1,6 +1,8 @@
 
 Reference:
 https://developer.apple.com/documentation/swiftui/app-organization
+https://developer.apple.com/documentation/swiftui/scene
+
 
 SwiftUI -> Define the entry and top-level structure of your app. 
 
@@ -20,6 +22,17 @@ displayed in a way that may vary from platform to platform. The reason is that d
 and hardware characteristics. 
 For example, a list shown as one column on an iPhone may be shown as two columns on an iPad. The system will always decide 
 the best way to show the user interface. 
+A scene is a container that can hold multiple elements such as windows or views.     
+System will decide way it displayed based on the platform. Operating system and device the app is plublished will determine the UI interface.
+
+Views:
+Complex elments displayed onscreens.
+Text, TextFields, Images, Shapes 
+Views have properties. 
+Distribution of views - horizontal, vertical and grid.
+Views are reusable. 
+
+A scene is a view(typically contained by a view controller)that is part of specific sequence. A view is where elements are displayed. 
 
 Windows:
 Display user interface content in a window or a collection of windows.
