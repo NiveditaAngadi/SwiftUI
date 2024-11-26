@@ -5,11 +5,16 @@ animations to user can engage in.
 Swift is a built-in modifier called "Frame" that can be used to manipulate views. 
 When applying modifiers to a view, you're often not modifying view at all but rather encapsulating 
 it in a new transparent view.
-However this does not make frame constraint, nor does it make it the frame or bands of a view. 
+However this does not make frame constraint, nor does it make it the frame or bounds of a view. 
 Frames actually yet another view. 
 One of the SwiftUI's greatest advantages is its lack of ambiguous framing, which is especially apparent when 
 compared to its predecessor Autolayout. 
 The system does its best to always produce the best result and give you control when needed. 
+
+Every view that is displayed on the screen is a rectangle.
+Views that don’t appear to be a rectangle are drawn in a rectangle. This rectangle is called the frame of the view.
+
+The .frame() modifier creates a new invisible view with the specified size. 
 
 2. Explain layout process in Swift
 Let's explore SwiftUI's layout process. 
@@ -43,7 +48,8 @@ they do provide a quick and easy way to evenly distribute items either verticall
 8. What is Padding?
 When you need precise when placing a view, that's where padding comes in and becomes very useful for SwiftUI developers. 
 Padding allows the developer to offset and align views in iOS application. 
-With padding you can specify exact amount of padding that you want to place on an element for the leading, trailing, top and bottom. 
+With padding you can specify exact amount of padding that you want to place on an element for the leading, trailing, top and bottom.
+By default, this adds the system-defined amount of space on all four sides of a view.
 
 9. What is alignment?
 The alignment parameter is part of the frame modifier as well as stacks, 
