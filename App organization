@@ -2,7 +2,9 @@
 Reference:
 https://developer.apple.com/documentation/swiftui/app-organization
 https://developer.apple.com/documentation/swiftui/scene
-
+https://developer.apple.com/documentation/combine/observableobject
+https://developer.apple.com/documentation/swiftui/observedobject
+https://developer.apple.com/documentation/swiftui/textfield
 
 SwiftUI -> Define the entry and top-level structure of your app. 
 
