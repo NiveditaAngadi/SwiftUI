@@ -8,7 +8,8 @@ https://developer.apple.com/documentation/swiftui/textfield
 
 SwiftUI -> Define the entry and top-level structure of your app. 
 
-Describe your app's structure declaratively, much like you declare a view's apperance. Create a type that conforms to the "App" protocol and use it to enumerate the "Scenes" that represent
+Describe your app's structure declaratively, much like you declare a view's apperance. 
+Create a type that conforms to the "App" protocol and use it to enumerate the "Scenes" that represent
 aspect of your app's user interface. 
 
 SwiftUI enables you to write code that works across all of Apple’s platforms. However,
