@@ -37,12 +37,14 @@ My App structure confirms to the "App" protocol, and provides the content of the
 4. What is App protocol?
 A type that represents the structure and behaviour of an app. 
 
-You can create an app by declaring a structure that conforms to the App protocol. Implement the required "body" computed property to define the app's content. 
+You can create an app by declaring a structure that conforms to the App protocol. 
+Implement the required "body" computed property to define the app's content. 
 
 The protocol provides the default implementation of main() method, that system calls to launch your app. 
 You can have exactly one entry point among all of your app's files. 
 
-Compose the app's body from instances that conform to the "Scene" protocol. Each scene contains the root view of a view hierarchy and has a life cycle managed by the system.
+Compose the app's body from instances that conform to the "Scene" protocol. 
+Each scene contains the root view of a view hierarchy and has a life cycle managed by the system.
 SwiftUI provides some concrete scene types to handle common scenarios, like for displaying documents or settings. 
 You can also create custom scenes. 
 
