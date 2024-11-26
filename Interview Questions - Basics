@@ -1,0 +1,326 @@
+1. What is SwiftUI?
+SwiftUI is Apple's declarative framework for building user interfaces across all Apple platforms. 
+Introduced by Apple in 2019. 
+Which focuses on letting you to write the specific outcome and system (SwiftUI) do the work on transalting into a functional UI. 
+
+2. Why SwiftUI?
+SwiftUI's combination of declarative syntax, live previews, and multi-device support provides everything you need to begin designing
+and developing for Apple platform. 
+- SwiftUI comes with wide range of features
+- These enable your apps to take advantange of the devices they run on - multi-device support. In iPhone two pages, in case of iPad one page with two column.
+- Feel native on Apple's platforms, and rich interactivity.
+- Adding these features requires less code
+- Enables to move from prototype to production faster.
+- Empowering you to focus on what makes your app unique.
+- Embraces incremental adoption
+- Automatic support for Dynamic texts.
+- Accessibility and localization
+- Easily create UI themes.
+- Darkmode support
+
+3. Challenges in iOS UI development? 
+Multi-device support was challenge. Support for various OS - MacOS,iOS, iPadOS, TVOS and WatchOS. Write code seperately. 
+AppKit -> iMac, MacBook, MacPro UIKit -> iPhone, iPad, AppleTV WatchKit -> Apple watch UIKit came from adoptation of AppKit
+
+4. What is Imperative Syntaxes?
+Method of creating code by specifying orders is called Imperative Syntaxes.
+
+5. What is Declarative Syntaxes?
+The method of writing code for the user interface elements by specifying what you need instead of how you need it, is called declarative syntax. 
+Worry about what you want - do not worry about how its done. 
+
+6. Benefits of declarative syntaxes?
+1. Easy to learn 
+2. Simple to read and understand 
+3. A clean and modern syntax
+4. Easy to create complex interfaces 
+5. Xcode provides live previews.
+6. No working with view constraints
+7. Localization and UI variants 
+8. Simplifies development of an app for multi-platform. 
+
+7. What are the limitations of declarative syntax?
+ 1. Full functionality only available in UIKit 
+ 2. Xcode preview bugs 
+ 3. Market is still adopting to SwiftUI. 
+
+8. Define App structure of the SwiftUI app. 
+Describe your app's structure declaratively. 
+App structure defines the content and behaviour of an app. 
+SwiftUI app has one and only one main app structure. 
+Create a type that conforms to the "App" protocol and use it to enumerate the "Scenes" that represent aspect of your app's user interfaces. 
+
+@main 
+struct MyApp: App {
+ var body: some Scene {
+  WindowGroup {
+    ContentView() 
+  }
+}
+
+10. What is @main? 
+@main attribute to indicate the entry point of the SwiftUI app. 
+The entry point is responsible for the start of the app. 
+A SwiftUI app contains one and only one entry point. Attempting to apply @main to more than one structure in the app results in a compiler error.
+
+11. How SwiftUI app handles the callbacks from the system?
+If you need to respond to the callbacks that the system traditionally makes on UIKit, AppKit or WatchKit app's delegate, define a delegate object and instantiate it in your 
+app structure using an appropriate delegate adaptor property wrapper like UIApplicationDelegateAdaptor. 
+
+12. What is App?
+Is a protocol. A type that represents the structure and behaviour of an app. 
+Implement the required "body" computed property to define the app's content. 
+The protocol provides the default implementation of main() method, that system calls to launch your app. 
+You can have exactly one entry point among all of your app's files. 
+
+13. What is body property?
+ "body" is the required computed property defined in the App protocol, which is the requirement of the "App" protocol. 
+This property returns the contents of the app described as "scene". 
+Body - can return one or more primary or secondary scenes. 
+
+14. What is SwiftUI scene?
+SwiftUI provides building blocks that help you create the user interface of your app. One of the building blocks is Scene. 
+A scene contains the view hierarchy that defines the app's user interface.
+SwiftUI provides differnt types of scenes including "WindowGroup", "Window", "DocumentationGroup", & "Settings". 
+The scene contains ContentView, a custom view that  creates a view hierarchy that consists of views. 
+
+A scene is a container that can hold multiple elements such as windows or views.     
+System will decide way it displayed based on the platform. Operating system and device the app is plublished will determine the UI interface.
+
+15. What is "WindowGroup" scene? 
+WindowGroup scene represents the main window that the app displays. 
+SwiftUI provides the platform specific behaviour for the window group.
+Most commonly used scene. 
+
+For instance, in macOS and iPadOS, a person can open more than one window from the group. 
+And in macOS, a person can combine multiple instances of the window group into a set of tabs.
+
+16. What is "ContentView"?
+In SwiftUI, a scene contains view hierarchy that an app displays as its user interface. A view hierarchy defines the layout of views
+relative to other views. 
+
+ContentView implements the computed property - body. 
+Implementing body is a common pattern that you see throughout your SwiftUI code,  for instance, when a structure conforms to protocols such as
+App, Scene, and View. 
+
+17. What is SwiftUI Views?
+View is where elemets are displayed. 
+Views are basic building blocks of user interfaces and are important.
+Three qualities make SwiftUI views are special.
+1. declarative 
+2. compositional 
+3. state-driven
+
+SwiftUI views are descriptions of what the current state of the UI should be 
+they are not long lived object instances that receive imperative commands over time. 
+This is why SwiftUI views are value types, defined using structs instead of classes.
+
+SwiftUI takes these descriptions and creates an efficient data structure to represent them. It maintains this data structure behind the scenes. 
+And it's used to produce different outputs, for example, what is shown on the screen, 
+the gestures and interactive aspects of the view and its accessibility representation.
+
+Views are *** State-driven *** when your view's state changes over time SwiftUI automatically keeps your UI up to date, eliminating both boilerplate and update bugs.
+
+18. What is the basic difference between UIKit view and SwiftUI view?
+Views in SwiftUI are structs while in UIKit they are instance of UIView class.  
+Everything in SwiftUI that is a view, is a struct. 
+On the other hand, in UIKit, every view is an instance of the UIView class. 
+The main benefits of having views as structs are that structs are simpler, use less storage memory and are faster than classes. 
+In UIKit, as a view is an instance of a class, it inherits all properties and codes of this class, resulting in something way more complex to store and handle.
+
+19. How will you observe the changes in the SwiftUI?
+SwiftUI maintains the representation of user interface behind the scenes. 
+As data changes new view values are created and given to SwiftUI. 
+SwiftUI uses those values to determine how to update its outputs. 
+Any piece of data that a view uses in its body is a dependency of that view. 
+SwiftUI creates dependencies to the specific properties used in view bodies. 
+SwiftUI has several tools for state management.
+State, Binding, ObeservableObject, ObservedObject - Property wrappers and are used with interface elements to control data display. 
+
+20. Define @State?
+Creates a new internal source of data for a view. When you mark a view property as @State, SwiftUI manages its storage and provides it back for the view to read and write.
+All SwiftUI views are struct. Once intialized, structs don't allow their internal variables to change. @State elements remove this restriction, allow variable to be stored outside the 
+structure itself in an area that can be changed. As a plus they serve as control variables.
+
+The Property Wrapper State is generally used inside of you that its structure or struct for short and with simple data types 
+such as into string double and arrays. Normally a struct does not let its value be modified. 
+So marking the variable with the State Property Wrapper tells SwiftUI to move its storage out from the structure and into shared storage managed by swiftUI. 
+The beauty of a State variable is that it behaves like a regular variable allowing reading and writing values and contains an internal mechanism that notifies view controls of any changes to it.
+
+21. What is @Binding?
+@State and @Binding works in pair,  inside SwiftUI's views, in the form @State and @Binding.
+Create a two-way reference to the state of the some other view.
+Binding on the other hand creates a variables that receive values from the @State variables and are connected them in a way that any change to a @Binding variable will change the 
+bind @State variables.
+@State and @Binding are used when you need to pass a variable to another view.
+
+struct ContentView: View {
+ @State var showLogo: Bool = true 
+ var body: some View {
+  if showLogo {
+   LittleLemonLogo(bindingVaraible: $showLogo)
+  }
+ }
+}
+
+struct LittleLemonLogo: View {
+    @Binding var bindingVariable:Bool
+    var body: some View {
+        VStack {
+            Image("littleLemonLogo")
+            Button(action: {
+                bindingVariable.toggle()
+            }, label: {
+                Text("Toggle Logo Visibility") 
+                  .font(.title2)
+            })
+        }
+    }
+}
+
+22. What is @ObservableObject?
+@State and @Binding work on SwiftUI views, which are purely structs, but what happens if you want to have a controlling variable in a class.
+These elements work exclusively for classes. 
+
+If you want to make a controlling varaible inside a class, make that class as "ObservableObject"
+class MyClass:ObservableObject { 
+    @Published var showLogo = true
+}
+
+23. What is @ObservedObject?
+
+struct ContentView: View {
+    @ObservedObject var myClass = MyClass()
+    var body: some View {
+        VStack {
+            if myClass.showLogo {
+                LittleLemonLogo(myClass: myClass)
+            }
+        }
+    }
+}
+
+
+24. What is @Published? 
+@Published, meaning, its changes will be notified to those observing it.
+
+25. What is Text?
+Text - allows you to display only read only text 
+
+26. What is TextField?
+TextField - allows you to display or allows user input in an app. 
+Text and TextFields are two controls used to deal with texts, the first in the context of displaying it and the second for allowing user input.
+
+27. Explain observing TextField?
+ - onChange, onEditingChanged, onSubmit 
+
+a. onChange 
+Its view modifier - Detect when the TextField changes and prints them 
+to the console 
+struct ReservationForm: View { 
+    @State var customerName:String = "" 
+    var body: some View { 
+        Form { 
+            TextField("Type Your Name", 
+                      text:$customerName) 
+            .onChange(of: customerName, 
+                      perform: {newValue in 
+                print(newValue) 
+            }) 
+        } 
+    } 
+} 
+
+b. onEditingChanged
+Detect when the TextField starts and ends editing. 
+struct ReservationForm: View { 
+    @State var customerName:String = "" 
+    var body: some View {  
+       TextField("Type Your Name", 
+                  text:$customerName, 
+                  onEditingChanged: { status in 
+            print(status) 
+        }) 
+        .onSubmit({ 
+            print("submitted") 
+        }) 
+        .onChange(of: customerName, perform: { newValue in 
+            print(newValue) 
+        }) 
+        .padding() 
+    } 
+} 
+
+c. onSubmit 
+Its view modifier - Detects when the user press Return. 
+
+struct ReservationForm: View { 
+    @State var customerName:String = "" 
+    var body: some View { 
+        Form {
+            TextField("Type Your Name", text:$customerName) 
+                .onChange(of: customerName, perform: { newValue in 
+                    print(newValue) 
+                 }) 
+                .onSubmit({ 
+                     print("submitted") 
+                })
+        }
+        .padding() 
+    }
+} 
+
+28. What is Preview Providers in SwiftUI?
+Preview Providers are used to generate live previews of SwiftUI views in Xcode.
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+29. How @Published is different from the @State?
+	@Published: Used in an ObservableObject to notify changes to views that observe it.
+	@State: Used for managing local state within a view.
+
+class DataModel: ObservableObject {
+    @Published var message = "Hello, World!"
+}
+
+struct PublishedExample: View {
+    @ObservedObject var model = DataModel()
+
+    var body: some View {
+        Text(model.message)
+    }
+}
+
+30. What are Modifiers in SwiftUI, and how are they applied?
+Modifiers are methods used to configure or transform views. They return a new view with the modification applied.
+
+struct ModifierExample: View {
+    var body: some View {
+        Text("Hello, World!")
+            .font(.title)
+            .foregroundColor(.blue)
+            .padding()
+    }
+}
+
+31. Explain the difference between Spacer and Padding.
+Spacer: Adds flexible, empty space in layouts, expanding to fill available space.
+Padding: Adds spacing around a view’s content.
+
+struct LayoutExample: View {
+    var body: some View {
+        HStack {
+            Text("Left")
+            Spacer() // Pushes "Right" to the end
+            Text("Right")
+        }
+        .padding() // Adds spacing around the entire HStack
+    }
+}
+
+
+
+
