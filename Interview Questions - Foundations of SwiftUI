@@ -1,0 +1,50 @@
+One of SwiftUI's most distinguishing features is the layout system. This system offers programmers enough options to create highly sophisticated layouts and 
+animations to user can engage in. 
+
+1. Explain about frame.
+Swift is a built-in modifier called "Frame" that can be used to manipulate views. 
+When applying modifiers to a view, you're often not modifying view at all but rather encapsulating 
+it in a new transparent view.
+However this does not make frame constraint, nor does it make it the frame or bands of a view. 
+Frames actually yet another view. 
+One of the SwiftUI's greatest advantages is its lack of ambiguous framing, which is especially apparent when 
+compared to its predecessor Autolayout. 
+The system does its best to always produce the best result and give you control when needed. 
+
+2. Explain layout process in Swift
+Let's explore SwiftUI's layout process. 
+SwiftUI's built-in frame modifier can be used to both assign static width or height to a given view 
+or 
+to apply constraints  like bounds within which the view can grow or shrink depending on its contents or surroundings.
+
+When parent must lay out one of its child views, it proceeds in three steps. 
+1. The parent offers some size to a child view. 
+2. The child view decides the size it requires, eventually taking into account the parent size offer in which the child is free 
+to ignore entirely, it then returns the size it requires to its parent. 
+3. Finally, the parent lays out the child somewhere strictly respecting the size that child requested. 
+
+3. What is Stack 
+Primary layout instrument in SwiftUI. Core method for aligning views with each other is using stacks.
+
+4. What is HStack 
+HStack arranges views in a left to right list. 
+
+5. What is VStack 
+VStack arranges views in a top to bottom list. 
+
+6. What is ZStack 
+If you want to overlay views, in other words, put one view on top of another, you cna use ZStack.
+
+7. What is Spacer?
+ Spacers are one of the preferred methods for placing objects in SwiftUI. 
+Although spacers do not offer the most adjustability when designing a layout, 
+they do provide a quick and easy way to evenly distribute items either vertically or horizontally within your UI.
+
+8. What is Padding?
+When you need precise when placing a view, that's where padding comes in and becomes very useful for SwiftUI developers. 
+Padding allows the developer to offset and align views in iOS application. 
+With padding you can specify exact amount of padding that you want to place on an element for the leading, trailing, top and bottom. 
+
+9. What is alignment?
+The alignment parameter is part of the frame modifier as well as stacks, 
+for example, if you want to align texts and the view, you can use top leading to align a view from the top left corner of a view. 
