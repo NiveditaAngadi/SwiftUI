@@ -39,6 +39,8 @@ VStack arranges views in a top to bottom list.
 
 6. What is ZStack 
 If you want to overlay views, in other words, put one view on top of another, you cna use ZStack.
+Spatial display of child views that stacks them from the bottom to the top. 
+Child views that are higher in the stack are displayed over lower children.
 
 7. What is Spacer?
  Spacers are one of the preferred methods for placing objects in SwiftUI. 
@@ -54,3 +56,30 @@ By default, this adds the system-defined amount of space on all four sides of a 
 9. What is alignment?
 The alignment parameter is part of the frame modifier as well as stacks, 
 for example, if you want to align texts and the view, you can use top leading to align a view from the top left corner of a view. 
+
+10. Will the Stack use maximum available space in the View?
+ No. Stacks will always try to use the minimum space necessary to fit all elements.
+ If you want a stack to fill a designated space you have to force it to do so. 
+
+11. What happens to the vertical size of a VStack if there is space available and we apply a frame modifier like this?
+VStack {
+  Text("Little Lemon Restaurant")
+  Text("RESERVATION")
+}
+.frame(width: 400, height:600)
+
+Nothing happens, The stack continues with same vertical size as before. 
+
+12. What will be the output of following code?
+ZStack {
+  HStack { 
+    Text("Little Lemon Restaurant")
+    Text("RESERVATION")
+  }
+  Image("littleLemonRestaurantLogo")
+}
+
+A horizontal stack will be rendered inside the ZStack containing both text elements side by side and the Little Lemon Restaurant logo 
+will be rendered on top of that. 
+
+
