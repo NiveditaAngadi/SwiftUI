@@ -6,6 +6,10 @@ https://developer.apple.com/documentation/SwiftUI/Controls-and-indicators
 https://developer.apple.com/documentation/SwiftUI/Fitting-Images-into-Available-Space
 https://developer.apple.com/tutorials/SwiftUI/drawing-paths-and-shapes
 
+https://developer.apple.com/documentation/swiftui/building-layouts-with-stack-views
+https://developer.apple.com/documentation/swiftui/images
+https://developer.apple.com/documentation/swiftui/fitting-images-into-available-space
+
 The views you define with SwiftUI either directly contain views that SwiftUI provides, or use other custom views that contain these built-in views.
 SwiftUI views determine their own size, and understanding how to modify the size of built-in views while preserving their adaptability is the best way to create a fluid layout 
 without complicating your code. 
