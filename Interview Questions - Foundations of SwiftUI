@@ -82,4 +82,59 @@ ZStack {
 A horizontal stack will be rendered inside the ZStack containing both text elements side by side and the Little Lemon Restaurant logo 
 will be rendered on top of that. 
 
+13. What are the basic controls in SwiftUI?
+Controls are visual elements that form the basis of all iOS applications. 
+They encapsulate functionality within elements that resembles real-world objects like Buttons, Toggle, 
+Steppers, Sliders, ProgressView, DatePicker, Labels.
+They are included in the framework by default.
+
+14. Buttons 
+In SwiftUI, Buttons used closures to execute actions. When you write code you must include code how the button should look like, and
+what action it should perform. 
+
+Button( 
+  action: {
+  }, 
+  label: { Text("Press me") }
+)
+
+15. Toggle 
+Toggles help switch between states of true and false. 
+
+@State var isShowing = true //toggle state 
+Toggle(isOn: @isShowing) {
+ Text("Notifications")
+}
+
+16. Stepper 
+Steppers are used to perform semantic increment and decrement actions. 
+If you want full control, you have the option of using a bare-bone stepper, where you manage your own datasource. 
+
+@State private var value = 1
+
+var body: some View {
+ NavigationView { 
+   VStack {
+      Text("Current value: \(value)")
+      Stepper ("Number of guests?", value: $value, in 1...20) 
+      }
+      .padding()
+      .navigationTitle("Reservation Form")
+  }
+}
+
+17. Sliders 
+If you need to select a value from abadndoned linear range of values, you can use Sliders as the control. 
+Example: Volume control. 
+
+@State private var size: CGFloat = 0.1 
+
+var body: some View {
+VStack {
+ Text("SureSkills")
+ .font(.system(size: size * 50))
+ Slider(value: $size)
+}
+.padding()
+}
 
