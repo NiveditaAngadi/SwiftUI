@@ -138,3 +138,77 @@ VStack {
 .padding()
 }
 
+18. ProgressView 
+View which is a view that showed the progress towards the completion of the task. 
+
+@State private var progress = 0.5 
+
+VStack {
+ ProgressView(value: progress)
+ Button("Loading", action: {
+ progress += 0.5 }) 
+}
+
+19. DatePicker
+If your app requires selecting an absolute date, Date picker is useful control. 
+
+ @State var selectedDate = Date()
+    var dateClosedRange: ClosedRange<Date> {
+        let min = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+        let max = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+        
+        return min...max
+    }
+
+    NavigationView {
+            Form {
+                Section {
+                    DatePicker(
+                        selection: $selectedDate,
+                        in: dateClosedRange,
+                        displayedComponents: .date,
+                        label: { Text("Select Date") }
+                        )
+                }
+            }
+        }
+
+20. Label 
+A label is a convinent view that presents an image and text alongside each other. 
+
+Label("Website", image: "Little lemon logo") 
+
+21. Adding images.
+1. System images 
+2. Local images 
+
+SF Images are - Vector images - provided by Apple. 
+
+1. System Images are added as is, 
+
+ Image(systemName: "arrow.right.circle")
+
+2. Local images - where you add image resource to the Assets Catalog of Xcode. 
+
+Image("Lemon Logo")
+ .resizable()
+ .aspectRatio(contentMode: .fit)
+ .frame(width: 50, height: 50)
+
+22. Container View
+Combining one or more views. 
+- Invisible View 
+- Parent and Child Views 
+
+Stack views - contains one or views. 
+HStack - Horizontal alignment of views 
+VStack - Vertical alignment of views 
+ZStack - Alignment of views in depth
+
+23. Views within view. 
+Every view in SwiftUI is struct. 
+
+
+
+
+
