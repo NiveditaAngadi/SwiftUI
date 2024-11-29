@@ -1,3 +1,9 @@
+https://developer.apple.com/documentation/swiftui/textfield
+https://developer.apple.com/tutorials/swiftui/creating-and-combining-views
+https://developer.apple.com/documentation/widgetkit/swiftui-views
+https://developer.apple.com/documentation/swiftui/observedobject
+
+
 One of SwiftUI's most distinguishing features is the layout system. This system offers programmers enough options to create highly sophisticated layouts and 
 animations to user can engage in. 
 
@@ -207,6 +213,9 @@ ZStack - Alignment of views in depth
 
 23. Views within view. 
 Every view in SwiftUI is struct. 
+Structures are simpler and faster than classes.
+
+Binding is basically property wrapper binds the local variable; to an external variable, and is received when the view initializes.
 
 
 
