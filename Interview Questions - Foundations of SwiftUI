@@ -217,7 +217,7 @@ Structures are simpler and faster than classes.
 
 Binding is basically property wrapper binds the local variable; to an external variable, and is received when the view initializes.
 
-
+State and Binding need not be same name. 
 
 
 
