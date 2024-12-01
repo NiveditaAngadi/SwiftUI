@@ -1,5 +1,56 @@
 Advanced SwiftUI concepts.
 
+Navigation should be 
+1. Quick
+2. Logical 
+3. Simple
+4. Straightforward
+
+
+
 Explore different types of navigation and how to use navigation in the apps. 
 
 Flat and Hierarchical Navigation
+
+1. Flat Navigation
+Flat Navigation is where all the views user can possibly navigate to derive from the one there on. 
+For example, Consider a web browser where you have multiple tabs opened with different pages on each tab. 
+
+The App contains tab controller, which may have two or more tasbs, where user can easily navigate between tabs. 
+
+struct ContentView: View {
+ var body: some View {
+  TabView {
+     Text("Make reservations")
+      .tabItem({ 
+         Label("Reservation", systemImage: "note.text")
+      })
+     Text("Contact Us")
+        .tabItem({
+         Label("Contact", systemImage: "phone")
+        })
+   }
+ }
+}
+
+What is TabView?
+A TabView is a view that switches between multiple child views using interactive user interface elements. 
+
+
+2. Hierarchical Navigation
+Only displays one view that contains multiple options for navigation. Where the user can navigate through pages forwards and backwards as desired. 
+
+In app, you need "NavigationView" to create a hierarchical navigation. 
+
+struct ContentView: View {
+ var body: some View {
+   NavigationView { 
+    NavigationLink(destination: EmptyView()) {
+      Text("Go to Little Lemon reservation page")
+        .font(.title)
+    }
+      .navigationTitle("Reservation")
+   }
+ }
+
+}
