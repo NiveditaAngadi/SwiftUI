@@ -8,7 +8,7 @@ Which let you display static data hard coded to the code and dynamic data from a
 List and ScrollView are similar elements because they both display elements in rows or columns, one after the other. 
 Are both containers that present rows that present rows of data arranged in a single column or line, optionally providing the ability to select one or more 
 members. 
-A List enables vertical scrolling and a ScrollView enables both horizontal and vertical scrolling. 
+A List enables vertical scrolling and a ScrollView enables both horizontal and vertical scrolling. But doesn't provide the zooming functionality. 
 List displays elements in vertical direction. 
 
 List displays data with default formatting. 
