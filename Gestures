@@ -1,3 +1,7 @@
+https://developer.apple.com/documentation/swiftui/gestures
+https://developer.apple.com/documentation/swiftui/scrollview
+https://developer.apple.com/documentation/swiftui/navigation
+
 Gestures can detect many things such as if an element is touched or swiped or if the user wants to drag or zoom an elemet, this makes them core part of applications. 
 
 1. What is Gesture?
