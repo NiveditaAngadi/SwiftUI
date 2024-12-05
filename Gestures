@@ -1,1 +1,80 @@
 Gestures can detect many things such as if an element is touched or swiped or if the user wants to drag or zoom an elemet, this makes them core part of applications. 
+
+1. What is Gesture?
+A gesture is an element that can be attached to a view and can detect interaction from taps, clicks and swipe to fine grain gestures. 
+Ability to detect from simple to sophisticated touches. 
+
+2. Types of gestures 
+1. Tap Gesture
+Text("Tap for reservation")
+   .onTapGesture {
+      print("Text tapped!")
+   }
+
+2. Long Press Gesture
+The default syntax detects long presses of 0.5 seconds to a view, meaning that 
+the user must keep a single finger touching the view for, at least, half a second, for the touch to be detected.
+
+Text("Long press to change reservation")
+   .onLongPressGesture {
+   print("User wants to change their Little lemon reservation!")
+  }
+
+Text("Long press to change reservation")
+   .onLongPressGesture(minimumDuration: 3) {
+   print("User wants to change their Little lemon reservation!")
+  }
+
+// minimumDuration: The minimum duration of the long press that must elapse before the gesture succeeds. In this example, long presses will be detected if the user touches the view with one finger for at least 4 seconds.
+// maximumDistance – The maximum distance that the fingers or cursor performing the long press can move before the gesture fails. In this case, this parameter has been adjusted to 15, meaning that the finger or cursor (on a Mac or iPad, if the user is using a mouse) can move 15 points in any direction and the long press will still be detected.
+// Perform – The action to perform when a long press is recognized. This closure receives no value.
+// onPressingChanged – A closure to run when the pressing state of the gesture changes, passing the current state as a parameter. State is a Boolean variable that will be true, as soon as a finger touches or a mouse click happens and false, as soon as the long press gesture itself is detected.
+    
+Text("Little Lemon Restaurant").onLongPressGesture(minimumDuration: 0.1, maximumDistance: 15, perform: {
+         print("Long press detected!")
+    }, onPressingChanged: { state in
+         print(state)
+  })
+
+3. Drag gesture 
+This gesture is complex as it needs a variable for controlling the view position, specifically, this code requires a state variable called 
+offset to be defined within the view. 
+This variable will track the image position which is provided by SwiftUI as a CGSize, inside the "onChanged" closure. 
+The offset line inside the presented code will change the image position to where it is dragged. 
+The dragging amount is detected inside the onChanged part, where offset variable is also set. 
+
+ Image("LittleLemonRestaurantLogo")
+   .offset(x: offset.width, y: offset.height)
+   .gesture(
+    DragGesture() 
+     .onChanged { gesture in 
+      offset = gesture.translation
+     }
+)
+
+4. Magnification motion 
+    @State private var magnificationAmount = 0.0
+    @State private var magnificationFinalAmount = 1.0
+        Image("LittleLemon_Logo")
+            .scaleEffect(magnificationFinalAmount + magnificationAmount)
+            .gesture(
+                MagnificationGesture()
+                    .onChanged { value in
+                        magnificationAmount = value - 1
+                    }
+                    .onEnded { value in
+                        magnificationFinalAmount += magnificationAmount
+                        magnificationAmount = .zero
+                    }
+            )
+
+5. Rotation gesture 
+
+6. Sequence gesture 
+SwiftUI lets you create a gestures which are sequences of other gestures, allowing you to run actions only when two gestures occur in particular order. 
+
+7. Simultaneous gesture 
+
+8. Exclusive Gesture 
+
+9. Custom Gesture
