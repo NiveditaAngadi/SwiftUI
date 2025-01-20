@@ -4,6 +4,33 @@ https://developer.apple.com/documentation/swiftui/building-layouts-with-stack-vi
 https://developer.apple.com/documentation/swiftui/creating-performant-scrollable-stacks
 
 Layout Fundamentals
+
+Layout system in SwiftUI provides the provision to develop sophisticated layouts and animations to user to enagage. 
+
+Frames and Layouts 
+Frame - .frame is a built in modifier for manipulating views. 
+Wehn you are modifying view you are not exaclty modifying the view but rather, encapsulating it in new transparent view. 
+Frames are actully yet another view. 
+One of SwiftUI's greatest advantages is it lack of ambiguous framing, which is especially apparent when compared to its 
+predecessor Autolayout. 
+System takes care of alignment and also give control when needed. 
+
+SwiftUI layer process
+Sizing behaviors -> 
+You can assign static parameters such as static height or width to views. 
+Or 
+You can apply constraints like bounds - within which view can grow or shrink depending on its content and surroundings. 
+
+When parent laying out its child views it proceeds with three steps.
+1. The parent offers some size to a child view.
+2. The child view decides the size it requires - returns size request. Child is free to ignore the size offered by the parent entirely
+and returns the size it requires to the parent. 
+3. Parent laysout the child respecting the size requested. 
+
+When creating the view in SwiftUI, you implment the view in body property - which returns the single view. 
+You can embed the multiple views in Stacks or multiple views. Primary layout instrument in SwiftUI is Stack. 
+
+
 Arrange views inside built-in layout containers like stacks and grids. 
 
 Use layout containers to arrange the elements of your userinterface. 
