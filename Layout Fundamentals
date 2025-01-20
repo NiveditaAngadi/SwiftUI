@@ -30,6 +30,11 @@ and returns the size it requires to the parent.
 When creating the view in SwiftUI, you implment the view in body property - which returns the single view. 
 You can embed the multiple views in Stacks or multiple views. Primary layout instrument in SwiftUI is Stack. 
 
+Spacer and Padding 
+Spacer -> Preferred methods for placing objects in SwiftUI. Though do not offer most adjustability when desiging a layout, they do provide 
+a quick and easy way to *** evenly distribute *** items either vertically or horizontally within your UI. 
+
+When you want precise distance between elements then use the padding. 
 
 Arrange views inside built-in layout containers like stacks and grids. 
 
