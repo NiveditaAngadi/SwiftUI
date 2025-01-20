@@ -38,12 +38,18 @@ To use both text and a symbol to represent a single element in your app, use a l
 A label takes care its title and icon sizes their alignment. 
 
 3. Controls
+Added in SwiftUI by default. 
 Views that people interact with come in discrete sizes, to maintain consistency when several elements of the same type appear together, like Settings pane. 
 You can use view modifier to update the size of the controls. 
-Button
+Button - Use closures to execute actions. 
 Progressive View 
 Picker 
 General-purpose controls like -> Menu, Link, specialized views like EditButton and color picker. 
+Date Picker 
+Label 
+Toggle 
+Stepper 
+Slider 
 
 4. Images and Shapes 
 Graphical elements, such as images and shapes, can add a level of visual enhancement for your app.
