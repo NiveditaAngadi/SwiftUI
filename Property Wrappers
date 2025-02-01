@@ -1,0 +1,14 @@
+1. Why Observable object? 
+In SwiftUI, managing state that's shared across multiple views requires tools that extend beyond the State property wrapper. This is where 
+Observable Object and ObservedObject come into play. 
+
+2. What is ObservableObject? 
+ObservableObject is a protocol that SwiftUI provides for objest that can be observed for changes. 
+When you mark a class as confirming to ObservableObject, you're singnaling to SwiftUI that this object's properties, when changed, 
+should trigger a refresh of any views that depend on them.
+Any properties marked with @Published in an ObservableObject will automatically notify the view to update when they change. 
+
+3. What is @AppStorage?
+ Dedicated property wrapper for reading values from "Userdefaults", which willautomatically
+     reinvoke your view's body property when the value changes.
+     That is, this wrapper effectively watches a key in Userdefaults, and will refresh your UI if that key changes.
