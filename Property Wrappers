@@ -12,3 +12,9 @@ Any properties marked with @Published in an ObservableObject will automatically 
  Dedicated property wrapper for reading values from "Userdefaults", which willautomatically
      reinvoke your view's body property when the value changes.
      That is, this wrapper effectively watches a key in Userdefaults, and will refresh your UI if that key changes.
+
+4. What is @Environment Object ?
+
+5. What is @Environment? 
+
+6. What is the difference between @EnvironmentObject and @Environment?
