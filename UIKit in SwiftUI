@@ -1,0 +1,46 @@
+Create a structure adopting a protocol "UIViewControllerRepresentable" and implement two methods of it. 
+ func makeUIViewController(context: Context) -> UIViewController 
+
+ func updateUIViewController(_ uiViewController: UIViewController, context: Context)
+
+
+
+Just create an instance of the structure where you want to show the UI. 
+
+import SwiftUI
+
+struct ContentView: View {
+    @State private var image: Image?
+    @State private var showingImagePicker = false
+    
+    var body: some View {
+        VStack {
+            image?
+                .resizable()
+                .scaledToFit()
+            Button("Select Image") {
+                showingImagePicker = true
+            }
+            
+            
+        }
+        .sheet(isPresented: $showingImagePicker) {
+            ImagePicker()
+        }
+        .padding()
+    }
+}
+
+#Preview {
+    ContentView()
+}
+
+
+2. How UIKit changes communicated to the SwiftUI?
+
+Using SwiftUI - Coordinator. Acts as delegates from the UIKit to SwiftUI. 
+Coordinator is the bridge between UIKit and SwiftUI. 
+@Binding and @State objects you can use the communication between UIKit and SwiftUI objects. 
+
+
+
