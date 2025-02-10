@@ -1,0 +1,108 @@
+SwiftUI introduced a new, more declarative way to manage an app’s lifecycle, replacing AppDelegate and SceneDelegate (which were used in UIKit).
+Key Differences from UIKit
+	•	No AppDelegate or SceneDelegate
+	•	Uses @main attribute to define the app’s entry point
+	•	Lifecycle events are handled using onChange(_:) and onReceive(_:)
+	•	Relies on @StateObject and @Environment for state management
+
+2. SwiftUI Lifecycle States
+
+SwiftUI apps transition through similar states as UIKit apps:
+	1.	Not Running – The app is not launched.
+	2.	Inactive – The app is running but not receiving input (e.g., phone call, notification).
+	3.	Active – The app is in the foreground and responding to user input.
+	4.	Background – The app is in the background but still executing tasks.
+	5.	Suspended – The app is in memory but not running code.
+
+3. SwiftUI App Entry Point
+
+A SwiftUI app is defined by a struct that conforms to the App protocol.
+
+import SwiftUI
+
+@main
+struct MyApp: App {
+    @StateObject private var appState = AppState()
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .environmentObject(appState)
+                .onAppear {
+                    print("App launched")
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
+                    print("App entered background")
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                    print("App will enter foreground")
+                }
+        }
+    }
+}
+
+Explanation:
+	•	@main marks the app entry point.
+	•	@StateObject manages the app’s shared state.
+	•	WindowGroup defines the main UI scene.
+	•	onAppear handles the app launch event.
+	•	onReceive listens for lifecycle notifications.
+
+4. Handling Lifecycle Events in SwiftUI
+
+Since SwiftUI lacks AppDelegate and SceneDelegate, lifecycle events must be handled differently.
+
+Foreground & Background Notifications
+
+SwiftUI does not have explicit lifecycle methods like UIKit, but you can listen for system notifications:
+
+.onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+    print("App will enter foreground")
+}
+
+.onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { _ in
+    print("App entered background")
+}
+
+Handling Scene Phase Changes
+You can use @Environment(\.scenePhase) to track app state changes.
+
+import SwiftUI
+
+struct ContentView: View {
+    @Environment(\.scenePhase) var scenePhase
+
+    var body: some View {
+        Text("Hello, SwiftUI!")
+            .onChange(of: scenePhase) { newPhase in
+                switch newPhase {
+                case .active:
+                    print("App is active")
+                case .inactive:
+                    print("App is inactive")
+                case .background:
+                    print("App is in background")
+                @unknown default:
+                    print("Unexpected state")
+                }
+            }
+    }
+}
+
+Explanation:
+	•	scenePhase tracks changes in app state.
+	•	.active, .inactive, and .background correspond to UIKit lifecycle states.
+	•	onChange(of:) listens for changes and responds accordingly.
+
+5. Lifecycle Flow in SwiftUI
+	1.	Launch → Active: @main struct runs → onAppear is triggered → App is active.
+	2.	Active → Background: scenePhase changes → Background tasks run.
+	3.	Background → Foreground: scenePhase detects change → UI updates.
+	4.	App Termination: System may suspend or kill the app.
+
+7. Best Practices for SwiftUI Lifecycle Management
+
+✅ Use scenePhase for App State Handling
+✅ Use @StateObject or @EnvironmentObject for App-wide State
+✅ Use Background Tasks API for Background Processing
+✅ Subscribe to Notifications for UIKit-Dependent Events
