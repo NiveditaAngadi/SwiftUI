@@ -4,8 +4,8 @@ https://developer.apple.com/documentation/widgetkit/swiftui-views
 https://developer.apple.com/documentation/swiftui/observedobject
 
 
-One of SwiftUI's most distinguishing features is the layout system. This system offers programmers enough options to create highly sophisticated layouts and 
-animations to user can engage in. 
+One of SwiftUI's most distinguishing features is the layout system. 
+This system offers programmers enough options to create highly sophisticated layouts and animations to user can engage in. 
 
 1. Explain about frame.
 Swift is a built-in modifier called "Frame" that can be used to manipulate views. 
